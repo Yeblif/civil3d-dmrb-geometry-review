@@ -1073,6 +1073,11 @@ Private Sub InstallInputControls()
     SetListValidation lo.ListColumns("Road Type").DataBodyRange, "Lists!$D$5:$D$7"
     SetListValidation lo.ListColumns("Include?").DataBodyRange, "Lists!$A$5:$A$6"
 
+    ' Setup Status and Live Review Summary are calculated. Remove dropdowns left
+    ' over from an older column layout so they don't look like inputs.
+    ClearValidation lo.ListColumns("Setup Status").DataBodyRange
+    ClearValidation lo.ListColumns("Live Review Summary").DataBodyRange
+
     Set lo = GetTable(SH_SSD_REVIEW, TBL_SSD)
     lo.DataBodyRange.Interior.Color = derivedColor
     SetColumnInputFill lo, "SSD ID", inputColor
@@ -1138,6 +1143,11 @@ Private Sub SetColumnInputFill(ByVal lo As ListObject, ByVal columnName As Strin
     If Not lo.ListColumns(columnName).DataBodyRange Is Nothing Then
         lo.ListColumns(columnName).DataBodyRange.Interior.Color = fillColor
     End If
+End Sub
+
+Private Sub ClearValidation(ByVal target As Range)
+    If target Is Nothing Then Exit Sub
+    target.Validation.Delete
 End Sub
 
 Private Sub SetListValidation(ByVal target As Range, ByVal sourceAddress As String)

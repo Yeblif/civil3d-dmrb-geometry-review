@@ -19,5 +19,6 @@ The workbook and the exporter have separate version numbers. Tags are `workbook-
 - Exporter build script and README now direct build errors to GitHub issues.
 
 ### Fixed
+- Setup Status and Live Review Summary on Review Setup no longer have leftover dropdowns. A value picked there was overwritten by Update Reviews; Road Type and Include? are set in columns C and D.
 - Running setup or repair repeatedly no longer adds duplicate **Clear / Start New Review** buttons.
 - Update Reviews and other buttons failed with Error 91 ("Object variable or With block variable not set"), first seen while building clause 2.13 junction zones. `ResizeTableRows` now makes sure an emptied table has a data body after resizing, so the Control Zones, Review, superelevation, Review Setup and design-speed tables can be written again.
