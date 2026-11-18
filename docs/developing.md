@@ -15,6 +15,8 @@ Don't commit the workbook as part of a code change.
 
 Keep a local copy of the workbook with the `C3D_Geometry_Reviewer_Importer` module removed, the buttons on Review Setup deleted and every sheet unprotected. Save it once like that and never save it after importing code, so each test starts from the same clean state. `RecoverReviewerTables` rebuilds the tables, formulas, input controls and buttons. Sheets are left unprotected.
 
+If you downloaded or copied the clean test workbook from the internet or email, unblock it once (right-click → **Properties** → tick **Unblock**). Otherwise Excel blocks its macros and **Run** is greyed out in Alt+F8. This setting is kept by Windows on your PC, not saved in the file.
+
 Don't commit the clean test workbook. It has no code, so it would confuse anyone downloading it.
 
 ## Keep project data out of the repository
