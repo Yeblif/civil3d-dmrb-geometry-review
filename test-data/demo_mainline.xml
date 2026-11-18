@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LandXML xmlns="http://www.landxml.org/schema/LandXML-1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.landxml.org/schema/LandXML-1.2 http://www.landxml.org/schema/LandXML-1.2/LandXML-1.2.xsd" date="2026-01-01" time="00:00:00" version="1.2" language="English" readOnly="false">
+	<Units>
+		<Metric areaUnit="squareMeter" linearUnit="meter" volumeUnit="cubicMeter" temperatureUnit="celsius" pressureUnit="milliBars" diameterUnit="millimeter" angularUnit="decimal degrees" directionUnit="decimal degrees"/>
+	</Units>
+	<Project name="DEMO-Highway-Model.dwg"/>
+	<Application name="Autodesk Civil 3D" desc="Civil 3D" manufacturer="Autodesk, Inc." version="2026" manufacturerURL="www.autodesk.com/civil" timeStamp="2026-01-01T00:00:00">
+	</Application>
+	<Alignments name="">
+		<Alignment name="DEMO-MAINLINE" length="690.000000000000" staStart="0." desc="Synthetic test alignment">
+			<CoordGeom>
+				<Line dir="30.000000000000" length="200.000000000000">
+					<Start>2000.000000000000 1000.000000000000</Start>
+					<End>2100.000000000000 1173.205080756888</End>
+				</Line>
+				<Spiral length="60.000000000000" radiusEnd="255.000000000000" radiusStart="INF" rot="cw" spiType="clothoid" theta="6.740679942716" totalY="2.350615974152" totalX="59.917008218119" tanLong="40.029038626155" tanShort="20.026400823633">
+					<Start>2100.000000000000 1173.205080756888</Start>
+					<PI>2120.014519313077 1207.871245096207</PI>
+					<End>2127.922810960903 1226.270039979616</End>
+				</Spiral>
+				<Curve rot="cw" chord="118.895794624187" crvType="arc" delta="26.962719770862" dirEnd="-3.703399713578" dirStart="23.259320057284" external="7.225407106711" length="120.000000000000" midOrd="7.026316910099" radius="255.000000000000" tangent="61.132349310987">
+					<Start>2127.922810960903 1226.270039979616</Start>
+					<Center>1893.647429349014 1326.967833255358</Center>
+					<End>2148.114935139532 1343.438671022535</End>
+					<PI>2152.063566542778 1282.433979052803</PI>
+				</Curve>
+				<Spiral length="60.000000000000" radiusEnd="INF" radiusStart="255.000000000000" rot="cw" spiType="clothoid" theta="6.740679942716" totalY="2.350615974152" totalX="59.917008218119" tanLong="40.029038626155" tanShort="20.026400823633">
+					<Start>2148.114935139532 1343.438671022535</Start>
+					<PI>2146.821399457075 1363.423252463912</PI>
+					<End>2139.565103943476 1402.789101988005</End>
+				</Spiral>
+				<Line dir="-10.444079656293" length="250.000000000000">
+					<Start>2139.565103943476 1402.789101988005</Start>
+					<End>2094.246156982442 1648.647176995403</End>
+				</Line>
+			</CoordGeom>
+			<Profile name="DEMO-MAINLINE">
+				<ProfSurf name="DEMO-MAINLINE - Existing Ground" state="existing">
+					<PntList2D>0.000 99.000 30.000 99.862 60.000 100.678 90.000 101.405 120.000 102.004 150.000 102.447 180.000 102.712 210.000 102.792 240.000 102.688 270.000 102.414 300.000 101.995 330.000 101.465 360.000 100.863 390.000 100.235 420.000 99.628 450.000 99.085 480.000 98.650 510.000 98.355 540.000 98.227 570.000 98.282 600.000 98.523 630.000 98.943 660.000 99.523 690.000 100.235</PntList2D>
+				</ProfSurf>
+				<ProfAlign name="DEMO-MAINLINE - Design FG">
+					<PVI>0.000000000000 100.000000000000</PVI>
+					<ParaCurve length="68.000000000000">300.000000000000 106.000000000000</ParaCurve>
+					<ParaCurve length="60.000000000000">520.000000000000 101.600000000000</ParaCurve>
+					<PVI>690.000000000000 103.300000000000</PVI>
+				</ProfAlign>
+			</Profile>
+			<Superelevation staStart="260.000000000000" staEnd="380.000000000000">
+				<BeginRunoffSta>200.000000000000</BeginRunoffSta>
+				<FullSuperSta>260.000000000000</FullSuperSta>
+				<FullSuperelev>5.</FullSuperelev>
+				<RunoffSta>380.000000000000</RunoffSta>
+				<StartofRunoutSta>440.000000000000</StartofRunoutSta>
+			</Superelevation>
+			<Feature name="SpeedStation" code="0" source="Autodesk Civil 3D">
+				<Property label="station" value="0.00000000"/>
+				<Property label="speed" value="70.00000000"/>
+			</Feature>
+		</Alignment>
+	</Alignments>
+</LandXML>
