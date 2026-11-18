@@ -1,16 +1,15 @@
 # Developing
 
-The workbook is the working copy of the code. `src/vba/C3D_Geometry_Reviewer_Importer.bas` is an exported text copy, kept so every change can be read and diffed on GitHub. Commit both together.
+`src/vba/C3D_Geometry_Reviewer_Importer.bas` is the source of truth for the code. Pull requests change the `.bas` only. The workbook (`Civil3D_Geometry_Review.xlsm`) is updated once per release, so between releases the module inside it can be behind `main`.
 
 ## Changing the code
 
-1. Open `Civil3D_Geometry_Review.xlsm` and make your changes in the VBA editor (Alt+F11).
-2. Test with the files in `test-data/`.
-3. In the VBA editor, right-click `C3D_Geometry_Reviewer_Importer` → **Export File…**, and save over `src/vba/C3D_Geometry_Reviewer_Importer.bas`.
-4. **Make the workbook blank before committing** (see below).
-5. Commit the `.xlsm` and the `.bas` together, add a line to `CHANGELOG.md` under *Unreleased*, and open a pull request.
+1. Raise an issue for the bug, feature or task.
+2. The change is made on a `claude/…` branch and opened as a **draft** pull request that links the issue (`Fixes #n`). Never commit directly to `main`.
+3. **Test the change before it's merged.** Open a local copy of the workbook, then in the VBA editor (Alt+F11) remove the `C3D_Geometry_Reviewer_Importer` module and use **File → Import File…** to import the `.bas` from the pull request branch. Run the affected buttons against the files in `test-data/`.
+4. If it fails, report the error on the pull request and the fix goes on the same branch. If it passes, tick *Tested in Excel*, mark the pull request ready for review and merge it.
 
-To go the other way (for example after reviewing a change on GitHub), use **File → Import File…** in the VBA editor. Remove the existing module first.
+Don't commit the workbook as part of a code change.
 
 ## Keep project data out of the repository
 
@@ -33,7 +32,13 @@ Never commit real LandXML or CSV exports, client or project names, or Autodesk D
 
 ## Releases
 
-When a version is finished, move the *Unreleased* entries in `CHANGELOG.md` to a new version heading and tag it:
+When the merged changes make a version worth releasing:
+
+1. Open the workbook, remove the `C3D_Geometry_Reviewer_Importer` module and import the `.bas` from `main`.
+2. Run every button against `test-data/`.
+3. Make the workbook blank (see *Keep project data out of the repository*).
+4. Commit the `.xlsm` on a `claude/…` branch, move the *Unreleased* entries in `CHANGELOG.md` to a new version heading, and merge.
+5. Tag the merge commit:
 
 - workbook: `workbook-v6.10.12`, `workbook-v6.11.0`, …
 - exporter: `exporter-v1.2.5`, …

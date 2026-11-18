@@ -15,6 +15,7 @@ The workbook and the exporter have separate version numbers. Tags are `workbook-
 
 ### Changed
 - Sheets are no longer protected. The buttons used to re-protect the raw import sheets after every run, which caused problems.
+- Development workflow: the `.bas` is now the source of truth, code pull requests are opened as drafts and tested in Excel before merging, and the workbook is only updated at release. See `docs/developing.md`.
 - Exporter build script and README now direct build errors to GitHub issues.
 
 ### Fixed
