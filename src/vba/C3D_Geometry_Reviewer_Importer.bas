@@ -134,7 +134,6 @@ Public Sub RecoverReviewerTables()
     InstallButtons
 
     ApplyHelperVisibility
-    ProtectRawSheets
     ThisWorkbook.Worksheets(SH_SETUP).Activate
 
     Application.Calculation = oldCalc
@@ -151,7 +150,6 @@ Failed:
     errDesc = Err.description
 
     On Error Resume Next
-    ProtectRawSheets
     Application.Calculation = oldCalc
     Application.EnableEvents = oldEvents
     Application.ScreenUpdating = oldScreen
@@ -249,7 +247,6 @@ Public Sub ClearReviewData()
     ReviewBuildSucceeded = False
 
     ApplyHelperVisibility
-    ProtectRawSheets
     ThisWorkbook.Worksheets(SH_SETUP).Activate
 
     Application.Calculation = oldCalc
@@ -265,7 +262,6 @@ Failed:
     errDesc = Err.description
 
     On Error Resume Next
-    ProtectRawSheets
     Application.Calculation = oldCalc
     Application.EnableEvents = oldEvents
     Application.ScreenUpdating = oldScreen
@@ -337,8 +333,6 @@ Public Sub RepairGeometryReviewer()
     stage = "restoring helper-sheet visibility"
     ApplyHelperVisibility
 
-    stage = "protecting raw import sheets"
-    ProtectRawSheets
 
     ThisWorkbook.Worksheets(SH_SETUP).Activate
 
@@ -353,7 +347,6 @@ Public Sub RepairGeometryReviewer()
 ReviewFailed:
     On Error Resume Next
     ApplyHelperVisibility
-    ProtectRawSheets
     ThisWorkbook.Worksheets(SH_SETUP).Activate
     Application.Calculation = oldCalc
     Application.EnableEvents = oldEvents
@@ -366,7 +359,6 @@ Failed:
     errDesc = Err.description
 
     On Error Resume Next
-    ProtectRawSheets
     ThisWorkbook.Worksheets(SH_SETUP).Activate
     Application.Calculation = oldCalc
     Application.EnableEvents = oldEvents
@@ -422,9 +414,8 @@ Public Sub SetupLandXMLImporter()
     stage = "building current review outputs"
     RebuildReviewsCore False, False
 
-    stage = "protecting raw sheets"
+    stage = "restoring helper-sheet visibility"
     ApplyHelperVisibility
-    ProtectRawSheets
 
     ThisWorkbook.Worksheets(SH_SETUP).Activate
     Application.EnableEvents = True
@@ -635,7 +626,6 @@ Public Sub ImportRefreshLandXML()
     RebuildReviewsCore False, False
 
     ApplyHelperVisibility
-    ProtectRawSheets
     EnsureAllTables
 
     ThisWorkbook.Worksheets(SH_SETUP).Activate
@@ -756,7 +746,6 @@ Public Sub ImportSuperelevationCSV()
     RebuildReviewsCore False, False
 
     ApplyHelperVisibility
-    ProtectRawSheets
     EnsureAllTables
     ThisWorkbook.Worksheets(SH_SETUP).Activate
 
@@ -1177,6 +1166,7 @@ Private Sub InstallButtons()
     ws.Shapes("btnLandXMLRefresh").Delete
     ws.Shapes("btnSuperelevationCSV").Delete
     ws.Shapes("btnReviewsRefresh").Delete
+    ws.Shapes("btnClearReviewData").Delete
     On Error GoTo 0
 
     Set shp = ws.Shapes.AddShape(5, ws.Range("A4").Left, ws.Range("A4").Top, 165, 34)
@@ -5580,17 +5570,6 @@ Private Sub UnprotectRepairSheets()
         ws.Unprotect Password:=""
         On Error GoTo 0
     Next ws
-End Sub
-
-Private Sub ProtectRawSheets()
-    Dim n As Variant
-
-    For Each n In Array(SH_ALIGN, SH_SPEEDS, SH_HORIZ, SH_PROFILES, SH_VERT, SH_SUPER)
-        With ThisWorkbook.Worksheets(CStr(n))
-            .EnableAutoFilter = True
-            .Protect Password:="", UserInterfaceOnly:=True, AllowFiltering:=True, AllowSorting:=True
-        End With
-    Next n
 End Sub
 
 Private Sub UnprotectRawSheets()
