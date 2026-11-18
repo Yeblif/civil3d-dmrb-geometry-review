@@ -14,7 +14,9 @@ The workbook and the exporter have separate version numbers. Tags are `workbook-
 - Documentation, issue templates and pull request template.
 
 ### Changed
+- Sheets are no longer protected. The buttons used to re-protect the raw import sheets after every run, which caused problems.
 - Exporter build script and README now direct build errors to GitHub issues.
 
 ### Fixed
+- Running setup or repair repeatedly no longer adds duplicate **Clear / Start New Review** buttons.
 - Update Reviews and other buttons failed with Error 91 ("Object variable or With block variable not set"), first seen while building clause 2.13 junction zones. `ResizeTableRows` now makes sure an emptied table has a data body after resizing, so the Control Zones, Review, superelevation, Review Setup and design-speed tables can be written again.
