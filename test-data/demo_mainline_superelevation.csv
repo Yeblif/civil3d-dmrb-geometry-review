@@ -1,0 +1,11 @@
+﻿Exported At,Drawing,Alignment,Superelevation Region,Station,Description,Smoothing Curve Length,Left Outside Shoulder,Left Outside Lane,Left Inside Lane,Left Inside Shoulder,Right Outside Shoulder,Right Outside Lane,Right Inside Lane,Right Inside Shoulder
+2026-01-01 00:00:00 +00:00,DEMO-Highway-Model,DEMO-MAINLINE,,0.000m,Begin Alignment,0.000,,-2.500%,,,,-2.500%,,
+2026-01-01 00:00:00 +00:00,DEMO-Highway-Model,DEMO-MAINLINE,Curve.1,170.000m,End Normal Crown,0.000,,-2.500%,,,,-2.500%,,
+2026-01-01 00:00:00 +00:00,DEMO-Highway-Model,DEMO-MAINLINE,Curve.1,200.000m,Level Crown,0.000,,0.000%,,,,-2.500%,,
+2026-01-01 00:00:00 +00:00,DEMO-Highway-Model,DEMO-MAINLINE,Curve.1,230.000m,Reverse Crown,0.000,,2.500%,,,,-2.500%,,
+2026-01-01 00:00:00 +00:00,DEMO-Highway-Model,DEMO-MAINLINE,Curve.1,260.000m,Begin Full Super,0.000,,5.000%,,,,-5.000%,,
+2026-01-01 00:00:00 +00:00,DEMO-Highway-Model,DEMO-MAINLINE,Curve.1,380.000m,End Full Super,0.000,,5.000%,,,,-5.000%,,
+2026-01-01 00:00:00 +00:00,DEMO-Highway-Model,DEMO-MAINLINE,Curve.1,410.000m,Reverse Crown,0.000,,2.500%,,,,-2.500%,,
+2026-01-01 00:00:00 +00:00,DEMO-Highway-Model,DEMO-MAINLINE,Curve.1,440.000m,Level Crown,0.000,,0.000%,,,,-2.500%,,
+2026-01-01 00:00:00 +00:00,DEMO-Highway-Model,DEMO-MAINLINE,Curve.1,470.000m,Begin Normal Crown,0.000,,-2.500%,,,,-2.500%,,
+2026-01-01 00:00:00 +00:00,DEMO-Highway-Model,DEMO-MAINLINE,,690.000m,End Alignment,0.000,,-2.500%,,,,-2.500%,,

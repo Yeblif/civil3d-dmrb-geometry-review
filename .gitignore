@@ -1,0 +1,19 @@
+# Excel lock and temp files
+~$*
+*.tmp
+
+# Real project files - keep these out of the public repo
+_local/
+*_temp.xml
+
+# Exporter build output
+exporter/NETLOAD/
+exporter/build_no_sdk.rsp
+*.dll
+*.pdb
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/

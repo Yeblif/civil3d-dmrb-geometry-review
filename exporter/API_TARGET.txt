@@ -1,0 +1,10 @@
+Target workstation API versions
+===============================
+
+AcMgd.dll      25.1.164.0.0
+AcDbMgd.dll    25.1.164.0.0
+AcCoreMgd.dll  25.1.164.0.0
+AeccDbMgd.dll  13.8.1704.0
+
+Target framework reported by the Autodesk assemblies:
+.NETCoreApp,Version=v8.0

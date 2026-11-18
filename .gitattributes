@@ -1,0 +1,14 @@
+# Default: normalise text files
+* text=auto
+
+# Store byte-for-byte with Windows line endings.
+# VBA Import needs CRLF; batch files expect it.
+*.bas -text diff
+*.cls -text diff
+*.frm -text diff
+*.cmd -text diff
+
+# Office files are binary
+*.xlsm binary
+*.xlsx binary
+*.frx binary
