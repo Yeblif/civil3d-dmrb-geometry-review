@@ -1365,6 +1365,22 @@ Private Sub ResizeTableRows(ByVal lo As ListObject, ByVal dataRows As Long)
         lo.Parent.Cells(firstRow + dataRows, firstCol + colCount - 1))
 
     lo.Resize rng
+
+    ' Excel can leave DataBodyRange as Nothing after Resize when the table was
+    ' empty (e.g. after Clear / Start New Review). Callers write straight into
+    ' DataBodyRange, which then fails with Error 91. Materialise the first row
+    ' with ListRows.Add (it reuses the blank insert row, so nothing below the
+    ' table is shifted) and re-apply the requested size.
+    If lo.DataBodyRange Is Nothing Then
+        lo.ListRows.Add
+        If dataRows > 1 Then lo.Resize rng
+    End If
+
+    If lo.DataBodyRange Is Nothing Then
+        Err.Raise vbObjectError + 630, "ResizeTableRows", _
+                  "Table " & lo.Name & " on sheet " & lo.Parent.Name & _
+                  " has no data rows after resizing to " & dataRows & " row(s)."
+    End If
 End Sub
 
 
