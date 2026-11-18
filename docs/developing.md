@@ -6,10 +6,16 @@
 
 1. Raise an issue for the bug, feature or task.
 2. The change is made on a `claude/…` branch and opened as a **draft** pull request that links the issue (`Fixes #n`). Never commit directly to `main`.
-3. **Test the change before it's merged.** Open a local copy of the workbook, then in the VBA editor (Alt+F11) remove the `C3D_Geometry_Reviewer_Importer` module and use **File → Import File…** to import the `.bas` from the pull request branch. Run the affected buttons against the files in `test-data/`.
+3. **Test the change before it's merged**, using a clean test workbook (see below). Open it, then in the VBA editor (Alt+F11) use **File → Import File…** to import the `.bas` from the pull request branch. Run **Alt+F8 → RecoverReviewerTables** to add the buttons, then run the affected buttons against the files in `test-data/`. Close without saving.
 4. If it fails, report the error on the pull request and the fix goes on the same branch. If it passes, tick *Tested in Excel*, mark the pull request ready for review and merge it.
 
 Don't commit the workbook as part of a code change.
+
+### Clean test workbook
+
+Keep a local copy of the workbook with the `C3D_Geometry_Reviewer_Importer` module removed, the buttons on Review Setup deleted and every sheet unprotected. Save it once like that and never save it after importing code, so each test starts from the same clean state. `RecoverReviewerTables` rebuilds the tables, formulas, input controls and buttons. Sheets are left unprotected.
+
+Don't commit the clean test workbook. It has no code, so it would confuse anyone downloading it.
 
 ## Keep project data out of the repository
 
@@ -34,10 +40,10 @@ Never commit real LandXML or CSV exports, client or project names, or Autodesk D
 
 When the merged changes make a version worth releasing:
 
-1. Open the workbook, remove the `C3D_Geometry_Reviewer_Importer` module and import the `.bas` from `main`.
+1. Open the clean test workbook, import the `.bas` from `main` and run **Alt+F8 → RecoverReviewerTables**.
 2. Run every button against `test-data/`.
 3. Make the workbook blank (see *Keep project data out of the repository*).
-4. Commit the `.xlsm` on a `claude/…` branch, move the *Unreleased* entries in `CHANGELOG.md` to a new version heading, and merge.
+4. **Save As** `Civil3D_Geometry_Review.xlsm` (not over the clean test workbook) and commit it on a `claude/…` branch, move the *Unreleased* entries in `CHANGELOG.md` to a new version heading, and merge.
 5. Tag the merge commit:
 
 - workbook: `workbook-v6.10.12`, `workbook-v6.11.0`, …
