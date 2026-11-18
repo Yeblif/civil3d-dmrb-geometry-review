@@ -14,6 +14,7 @@ Fixes #
 (UI changes only)
 
 ## Checklist
-- [ ] VBA exported to `src/vba/` and matches the workbook
-- [ ] Workbook cleared and personal information removed (see `docs/developing.md`)
+- [ ] Code change made in `src/vba/` (workbook is only updated at release)
 - [ ] CHANGELOG updated under Unreleased
+- [ ] Tested in Excel against `test-data/` (keep as draft until ticked)
+- [ ] Release PRs only: workbook re-imported from `main`, cleared and personal information removed (see `docs/developing.md`)
